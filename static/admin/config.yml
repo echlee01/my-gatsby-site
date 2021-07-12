@@ -6,17 +6,61 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'content/blog'
-    create: true
-    slug: 'index'
-    path: '{{title}}/index'
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "Blog" # Used in the UI
+    folder: "content/blog" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     editor:
-      preview: true
-    fields:
-      - { }
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      preview: false
+    fields: # The fields for each document, usually in front matter
+      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
+      - label: "Body"
+        name: "body"
+        widget: "object"
+        required: false
+        fields:
+          - {label: "Paragraph One", name: "paragraph one", widget: "markdown"}
+          - label: "Images"
+            name: "images"
+            widget: "object"
+            required: false
+            fields:
+              - {label: "Image One", name: "image one", widget: "image", required: false}
+              - {label: "Image Two", name: "image two", widget: "image", required: false}
+          - {label: "Paragraph Two", name: "paragraph two", widget: "markdown", required: false}
+          - {label: "Image Three", name: "image three", widget: "image", required: false}
+          - {label: "Paragraph Three", name: "paragraph three", widget: "markdown", required: false}
+
+
+  
+  - name: "event"
+    label: "Event"
+    folder: "content/event"
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    editor:
+      preview: false
+    fields: 
+      - {label: "Layout", name: "layout", widget: "hidden", default: "event"}
+      - {label: "Title", name: "title", widget: "string"}
+      - label: "Month Estimation"
+        name: "month estimation"
+        widget: "select"
+        options: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        required: false
+      - {label: "Event Date", name: "event date", widget: "datetime", format: "LL", required: false}
+      - {label: "Time Start", name: "time start", widget: "datetime", format: "LT", required: false}
+      - {label: "Time End", name: "time end", widget: "datetime", format: "LT", required: false}
+      - label: "Location" 
+        name: "location"
+        widget: "object"
+        required: false
+        fields: 
+          - {label: "Location Map", name: "location map", widget: "map", required: false}
+          - {label: "Location Desc", name: "location desc", widget: "markdown", required: false}
+      
+      - {label: "Image", name: "image", widget: "image", required: false}
+      - {label: "URL", name: "url", widget: "markdown", required: false}
