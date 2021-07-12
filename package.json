@@ -1,23 +1,68 @@
 {
-  "name": "my-gatsby-site",
-  "version": "1.0.0",
-  "private": true,
-  "description": "My Gatsby Site",
-  "author": "Chuan Hao Lee",
-  "keywords": [
-    "gatsby"
-  ],
-  "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean"
-  },
-  "dependencies": {
-    "gatsby": "^3.6.2",
-    "gatsby-plugin-gatsby-cloud": "^2.7.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
-  }
+    "name": "ukc-website",
+    "version": "1.0.0",
+    "private": true,
+    "description": "UKC Website",
+    "author": "simon-nctran",
+    "keywords": [
+        "gatsby"
+    ],
+    "engines": {
+        "node": ">=14.17.0"
+    },
+    "scripts": {
+        "develop": "gatsby develop",
+        "start": "gatsby develop",
+        "build": "gatsby build",
+        "serve": "gatsby serve",
+        "clean": "gatsby clean",
+        "prepare": "husky install"
+    },
+    "dependencies": {
+        "@chakra-ui/gatsby-plugin": "^2.0.1",
+        "@chakra-ui/react": "^1.6.4",
+        "@emotion/react": "^11.4.0",
+        "@emotion/styled": "^11.3.0",
+        "framer-motion": "^4.1.17",
+        "gatsby": "^3.8.1",
+        "gatsby-plugin-graphql-codegen": "^3.0.0",
+        "gatsby-plugin-image": "^1.8.0",
+        "gatsby-plugin-netlify-cms": "^5.8.0",
+        "gatsby-plugin-sharp": "^3.8.0",
+        "gatsby-source-filesystem": "^3.8.0",
+        "gatsby-transformer-sharp": "^3.8.0",
+        "netlify-cms-app": "^2.15.20",
+        "postcss": "^8.3.5",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "typescript": "^4.3.5"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.28.1",
+        "@typescript-eslint/parser": "^4.28.1",
+        "eslint": "^7.30.0",
+        "eslint-config-airbnb": "^18.2.1",
+        "eslint-config-airbnb-typescript": "^12.3.1",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-es": "^4.1.0",
+        "eslint-plugin-eslint-comments": "^3.2.0",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-no-use-extend-native": "^0.5.0",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-react": "^7.24.0",
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "eslint-plugin-security": "^1.4.0",
+        "eslint-plugin-simple-import-sort": "^7.0.0",
+        "eslint-plugin-sonarjs": "^0.8.0-125",
+        "eslint-plugin-unicorn": "^34.0.1",
+        "husky": "^7.0.0",
+        "lint-staged": "^11.0.0",
+        "prettier": "^2.3.2"
+    },
+    "lint-staged": {
+        "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
+        "*.{js,jsx,ts,tsx,json,html,css,md}": "prettier --write"
+    }
 }
